@@ -14,7 +14,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 const AdminQuotes = () => {
-  const { quotes, authors, topics } = useBrainyQuote();
+  const { quotes, authors, topics, addQuote, updateQuote, deleteQuote } = useBrainyQuote();
   const [filteredQuotes, setFilteredQuotes] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedAuthor, setSelectedAuthor] = useState('');
