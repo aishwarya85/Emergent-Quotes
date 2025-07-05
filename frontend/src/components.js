@@ -796,6 +796,14 @@ export const Footer = () => {
           <p className="text-sm opacity-90">
             Copyright © 2001 - 2025 BrainyQuote
           </p>
+          <div className="mt-2">
+            <a 
+              href="/admin/login" 
+              className="text-xs text-white/60 hover:text-white/80 transition-colors"
+            >
+              Admin Panel
+            </a>
+          </div>
         </div>
       </div>
     </footer>
