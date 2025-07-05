@@ -349,6 +349,17 @@ export const AdminForm = ({ title, fields, onSubmit, onCancel, initialData = {},
                 required={field.required}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
+            ) : field.type === 'checkbox' ? (
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  name={field.name}
+                  checked={formData[field.name] || false}
+                  onChange={(e) => handleFieldChange(field.name, e.target.checked)}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                />
+                <span className="ml-2 text-sm text-gray-700">{field.help}</span>
+              </div>
             ) : (
               <input
                 type={field.type || 'text'}
@@ -361,7 +372,7 @@ export const AdminForm = ({ title, fields, onSubmit, onCancel, initialData = {},
               />
             )}
             
-            {field.help && (
+            {field.help && field.type !== 'checkbox' && (
               <p className="mt-1 text-xs text-gray-500">{field.help}</p>
             )}
           </div>
