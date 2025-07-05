@@ -336,6 +336,11 @@ export const BrainyQuoteProvider = ({ children }) => {
     return quotes.filter(quote => quote.authorId === authorId);
   };
 
+  // Get quotes by category
+  const getQuotesByCategory = (categoryId) => {
+    return quotes.filter(quote => quote.categoryId === categoryId);
+  };
+
   // Add quote to state
   const addQuote = (newQuote) => {
     setQuotes(prev => [...prev, newQuote]);
