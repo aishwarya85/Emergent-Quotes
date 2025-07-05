@@ -68,9 +68,9 @@ const AdminQuotes = () => {
   };
 
   const handleDeleteQuote = (quote) => {
-    if (window.confirm('Are you sure you want to delete this quote?')) {
-      // Here you would typically call an API to delete the quote
-      alert('Quote deleted successfully! (This is a demo)');
+    if (window.confirm(`Are you sure you want to delete this quote?\n\n"${quote.text}" - ${quote.author}`)) {
+      deleteQuote(quote.id);
+      alert('Quote deleted successfully!');
     }
   };
 
