@@ -336,9 +336,21 @@ export const BrainyQuoteProvider = ({ children }) => {
     return quotes.filter(quote => quote.authorId === authorId);
   };
 
-  // Get quotes by category
-  const getQuotesByCategory = (categoryId) => {
-    return quotes.filter(quote => quote.categoryId === categoryId);
+  // Add quote to state
+  const addQuote = (newQuote) => {
+    setQuotes(prev => [...prev, newQuote]);
+  };
+
+  // Update quote in state
+  const updateQuote = (updatedQuote) => {
+    setQuotes(prev => prev.map(quote => 
+      quote.id === updatedQuote.id ? updatedQuote : quote
+    ));
+  };
+
+  // Delete quote from state
+  const deleteQuote = (quoteId) => {
+    setQuotes(prev => prev.filter(quote => quote.id !== quoteId));
   };
 
   const value = {
