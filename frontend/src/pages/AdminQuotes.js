@@ -204,10 +204,10 @@ const AdminQuotes = () => {
       name: 'text',
       label: 'Quote Text',
       type: 'textarea',
-      placeholder: 'Enter the quote text...',
+      placeholder: 'Enter the inspirational quote text here...',
       required: true,
       rows: 4,
-      help: 'The main text of the quote'
+      help: 'The main text of the quote (required)'
     },
     {
       name: 'authorId',
@@ -215,35 +215,35 @@ const AdminQuotes = () => {
       type: 'select',
       required: true,
       options: authors.map(author => ({ value: author.id, label: author.name })),
-      help: 'Select the author of this quote'
+      help: 'Select the author who said this quote'
     },
     {
       name: 'categoryId',
-      label: 'Category',
+      label: 'Category/Topic',
       type: 'select',
       required: true,
       options: topics.map(topic => ({ value: topic.id, label: topic.name })),
-      help: 'Select the category for this quote'
+      help: 'Choose the most appropriate category for this quote'
     },
     {
       name: 'backgroundImage',
       label: 'Background Image URL',
       type: 'url',
-      placeholder: 'https://example.com/image.jpg',
-      help: 'URL for the quote card background image'
+      placeholder: 'https://images.unsplash.com/photo-example.jpg',
+      help: 'Optional: URL for the quote card background image'
     },
     {
       name: 'tags',
       label: 'Tags',
       type: 'text',
-      placeholder: 'motivation, success, life (comma-separated)',
-      help: 'Comma-separated tags for better searchability'
+      placeholder: 'motivation, success, inspiration, life',
+      help: 'Comma-separated tags for better searchability (e.g., motivation, success, life)'
     },
     {
       name: 'featured',
-      label: 'Featured Quote',
+      label: 'Mark as Featured Quote',
       type: 'checkbox',
-      help: 'Mark this quote as featured'
+      help: 'Featured quotes appear prominently on the homepage'
     }
   ];
 
