@@ -77,13 +77,44 @@ const AdminQuotes = () => {
   const handleSubmitQuote = async (formData) => {
     setIsLoading(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    if (modalMode === 'add') {
-      alert('Quote added successfully! (This is a demo)');
-    } else {
-      alert('Quote updated successfully! (This is a demo)');
+    try {
+      // Process form data
+      const processedData = {
+        ...formData,
+        id: modalMode === 'add' ? Date.now() : selectedQuote?.id,
+        authorId: parseInt(formData.authorId),
+        categoryId: parseInt(formData.categoryId),
+        tags: typeof formData.tags === 'string' ? formData.tags.split(',').map(tag => tag.trim()) : [],
+        featured: formData.featured || false,
+        likes: modalMode === 'add' ? 0 : selectedQuote?.likes || 0,
+        shares: modalMode === 'add' ? 0 : selectedQuote?.shares || 0,
+        bookmarks: modalMode === 'add' ? 0 : selectedQuote?.bookmarks || 0,
+        dateAdded: modalMode === 'add' ? new Date().toISOString().split('T')[0] : selectedQuote?.dateAdded,
+        backgroundImage: formData.backgroundImage || 'https://images.unsplash.com/photo-1650513737590-4a00deeddc7a'
+      };
+
+      // Find author and category names
+      const author = authors.find(a => a.id === processedData.authorId);
+      const category = topics.find(t => t.id === processedData.categoryId);
+      
+      if (author) processedData.author = author.name;
+      if (category) processedData.category = category.name;
+
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Show success message with details
+      if (modalMode === 'add') {
+        alert(`Quote added successfully!\n\nQuote: "${processedData.text}"\nAuthor: ${processedData.author}\nCategory: ${processedData.category}`);
+      } else {
+        alert(`Quote updated successfully!\n\nQuote: "${processedData.text}"\nAuthor: ${processedData.author}\nCategory: ${processedData.category}`);
+      }
+      
+      // In a real app, you would update the quotes state here
+      console.log('Quote data to save:', processedData);
+      
+    } catch (error) {
+      alert('Error saving quote: ' + error.message);
     }
     
     setIsLoading(false);
