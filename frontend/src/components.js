@@ -372,7 +372,10 @@ export const BrainyQuoteProvider = ({ children }) => {
     shareQuote,
     getRandomQuote,
     getQuotesByAuthor,
-    getQuotesByCategory
+    getQuotesByCategory,
+    addQuote,
+    updateQuote,
+    deleteQuote
   };
 
   return (
