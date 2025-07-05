@@ -115,7 +115,7 @@ const AdminDashboard = () => {
                 <div className={`p-3 ${card.color} rounded-lg`}>
                   <card.icon className="w-6 h-6 text-white" />
                 </div>
-                <TrendingUpIcon className="w-5 h-5 text-green-500" />
+                <ArrowTrendingUpIcon className="w-5 h-5 text-green-500" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-1">{card.value}</h3>
               <p className="text-gray-600 text-sm mb-2">{card.title}</p>
