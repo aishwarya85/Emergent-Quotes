@@ -7,12 +7,12 @@ import {
   UserGroupIcon,
   TagIcon,
   BookOpenIcon,
-  TrendingUpIcon,
   EyeIcon,
   HeartIcon,
   ShareIcon,
   CalendarDaysIcon,
-  ClockIcon
+  ClockIcon,
+  ArrowTrendingUpIcon
 } from "@heroicons/react/24/outline";
 
 const AdminDashboard = () => {
